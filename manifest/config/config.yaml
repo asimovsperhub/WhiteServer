@@ -1,0 +1,24 @@
+server:
+  address:     ":8000"
+  openapiPath: "/api.json"
+  swaggerPath: "/swagger"
+
+logger:
+  level : "all"
+  stdout: true
+
+# 数据库连接配置
+database:
+  logger:
+    path:    "logs/sql"
+    level:   "all"
+    stdout:  true
+    ctxKeys: ["RequestId"]
+
+  default:
+    link:   "mysql:root:Asimov@0518@tcp(172.81.40.90:3306)/white"
+    debug:  true
+
+# 模板引擎配置
+viewer:
+  indexLayout:     "index.html"

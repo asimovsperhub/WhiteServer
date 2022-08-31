@@ -1,0 +1,254 @@
+2022-08-05 09:55:03.621 [DEBU] {d0fc7c4d125008171420a96ecd561d46} [1395 ms] [default] [rows:0  ] UPDATE `Address` SET addr='xxx' WHERE `iswhite`=1 
+2022-08-05 09:56:17.284 [DEBU] {5080de8623500817cbd09168c5b4a4cc} [1080 ms] [default] [rows:3  ] SHOW FULL COLUMNS FROM `Address` 
+2022-08-05 09:56:17.793 [DEBU] {5080de8623500817cbd09168c5b4a4cc} [508 ms] [default] [rows:0  ] UPDATE `Address` SET addr='xxx' WHERE `iswhite`=1 
+2022-08-05 09:58:34.619 [DEBU] {f813c45443500817d0d091684649ad60} [1818 ms] [default] [rows:1  ] SELECT COUNT(1) FROM `Address` WHERE `addr`='xxx' 
+2022-08-05 09:59:33.969 [DEBU] {905fd8535150081747b54d147b2dcaf1} [1053 ms] [default] [rows:3  ] SHOW FULL COLUMNS FROM `Address` 
+2022-08-05 10:40:46.975 [DEBU] {00102d10915208170ffd9945743384fb} [1294 ms] [default] [rows:3  ] SHOW FULL COLUMNS FROM `Address` 
+2022-08-05 10:40:47.445 [DEBU] {00102d10915208170ffd9945743384fb} [468 ms] [default] [rows:1  ] INSERT INTO `Address`(`addr`) VALUES('xxx')  
+2022-08-05 10:41:15.026 [DEBU] {68e205bf9752081710fd99459ce873cb} [642 ms] [default] [rows:1  ] SELECT COUNT(1) FROM `Address` WHERE `addr`='xxx' 
+2022-08-05 11:36:17.953 [ERRO] {18be50859855081713fd99459503174b} [1706 ms] [default] [rows:0  ] INSERT INTO `Address`(`addr`) VALUES('xxx') 
+Error: Error 1062: Duplicate entry 'xxx' for key 'addr' 
+Stack:
+1.  github.com/gogf/gf/v2/database/gdb.(*Core).writeSqlToLogger
+    /Users/apple/work/go/pkg/mod/github.com/gogf/gf/v2@v2.0.6/database/gdb/gdb_core.go:662
+2.  github.com/gogf/gf/v2/database/gdb.(*Core).DoCommit
+    /Users/apple/work/go/pkg/mod/github.com/gogf/gf/v2@v2.0.6/database/gdb/gdb_core_underlying.go:300
+3.  github.com/gogf/gf/v2/database/gdb.(*Core).DoExec
+    /Users/apple/work/go/pkg/mod/github.com/gogf/gf/v2@v2.0.6/database/gdb/gdb_core_underlying.go:112
+4.  github.com/gogf/gf/v2/database/gdb.(*Core).DoInsert
+    /Users/apple/work/go/pkg/mod/github.com/gogf/gf/v2@v2.0.6/database/gdb/gdb_core.go:451
+5.  github.com/gogf/gf/v2/database/gdb.(*HookInsertInput).Next
+    /Users/apple/work/go/pkg/mod/github.com/gogf/gf/v2@v2.0.6/database/gdb/gdb_model_hook.go:119
+6.  github.com/gogf/gf/v2/database/gdb.(*Model).doInsertWithOption
+    /Users/apple/work/go/pkg/mod/github.com/gogf/gf/v2@v2.0.6/database/gdb/gdb_model_insert.go:335
+7.  github.com/gogf/gf/v2/database/gdb.(*Model).Insert
+    /Users/apple/work/go/pkg/mod/github.com/gogf/gf/v2@v2.0.6/database/gdb/gdb_model_insert.go:175
+8.  github.com/gogf/gf/v2/database/gdb.(*Model).Insert
+    /Users/apple/work/go/pkg/mod/github.com/gogf/gf/v2@v2.0.6/database/gdb/gdb_model_insert.go:173
+9.  zzw/internal/service.(*sWhite).AddWhite
+    /Users/apple/work/go/src/project/zzw/internal/service/white.go:35
+10. zzw/internal/controller.(*cWhite).AddWhite
+    /Users/apple/work/go/src/project/zzw/internal/controller/white.go:28
+11. github.com/gogf/gf/v2/net/ghttp.(*middleware).callHandlerFunc.func1
+    /Users/apple/work/go/pkg/mod/github.com/gogf/gf/v2@v2.0.6/net/ghttp/ghttp_request_middleware.go:151
+12. github.com/gogf/gf/v2/net/ghttp.niceCallFunc
+    /Users/apple/work/go/pkg/mod/github.com/gogf/gf/v2@v2.0.6/net/ghttp/ghttp_func.go:56
+13. github.com/gogf/gf/v2/net/ghttp.(*middleware).callHandlerFunc
+    /Users/apple/work/go/pkg/mod/github.com/gogf/gf/v2@v2.0.6/net/ghttp/ghttp_request_middleware.go:128
+14. github.com/gogf/gf/v2/net/ghttp.(*middleware).Next.func1
+    /Users/apple/work/go/pkg/mod/github.com/gogf/gf/v2@v2.0.6/net/ghttp/ghttp_request_middleware.go:74
+15. github.com/gogf/gf/v2/util/gutil.TryCatch
+    /Users/apple/work/go/pkg/mod/github.com/gogf/gf/v2@v2.0.6/util/gutil/gutil.go:55
+16. github.com/gogf/gf/v2/net/ghttp.(*middleware).Next
+    /Users/apple/work/go/pkg/mod/github.com/gogf/gf/v2@v2.0.6/net/ghttp/ghttp_request_middleware.go:48
+17. github.com/gogf/gf/v2/net/ghttp.MiddlewareHandlerResponse
+    /Users/apple/work/go/pkg/mod/github.com/gogf/gf/v2@v2.0.6/net/ghttp/ghttp_middleware_handler_response.go:26
+18. github.com/gogf/gf/v2/net/ghttp.(*middleware).Next.func1.1
+    /Users/apple/work/go/pkg/mod/github.com/gogf/gf/v2@v2.0.6/net/ghttp/ghttp_request_middleware.go:54
+19. github.com/gogf/gf/v2/net/ghttp.niceCallFunc
+    /Users/apple/work/go/pkg/mod/github.com/gogf/gf/v2@v2.0.6/net/ghttp/ghttp_func.go:56
+20. github.com/gogf/gf/v2/net/ghttp.(*middleware).Next.func1
+    /Users/apple/work/go/pkg/mod/github.com/gogf/gf/v2@v2.0.6/net/ghttp/ghttp_request_middleware.go:53
+21. github.com/gogf/gf/v2/util/gutil.TryCatch
+    /Users/apple/work/go/pkg/mod/github.com/gogf/gf/v2@v2.0.6/util/gutil/gutil.go:55
+22. github.com/gogf/gf/v2/net/ghttp.(*middleware).Next
+    /Users/apple/work/go/pkg/mod/github.com/gogf/gf/v2@v2.0.6/net/ghttp/ghttp_request_middleware.go:48
+23. github.com/gogf/gf/v2/net/ghttp.internalMiddlewareServerTracing
+    /Users/apple/work/go/pkg/mod/github.com/gogf/gf/v2@v2.0.6/net/ghttp/ghttp_middleware_tracing.go:78
+24. github.com/gogf/gf/v2/net/ghttp.(*middleware).Next.func1.5
+    /Users/apple/work/go/pkg/mod/github.com/gogf/gf/v2@v2.0.6/net/ghttp/ghttp_request_middleware.go:95
+25. github.com/gogf/gf/v2/net/ghttp.niceCallFunc
+    /Users/apple/work/go/pkg/mod/github.com/gogf/gf/v2@v2.0.6/net/ghttp/ghttp_func.go:56
+26. github.com/gogf/gf/v2/net/ghttp.(*middleware).Next.func1
+    /Users/apple/work/go/pkg/mod/github.com/gogf/gf/v2@v2.0.6/net/ghttp/ghttp_request_middleware.go:94
+27. github.com/gogf/gf/v2/util/gutil.TryCatch
+    /Users/apple/work/go/pkg/mod/github.com/gogf/gf/v2@v2.0.6/util/gutil/gutil.go:55
+28. github.com/gogf/gf/v2/net/ghttp.(*middleware).Next
+    /Users/apple/work/go/pkg/mod/github.com/gogf/gf/v2@v2.0.6/net/ghttp/ghttp_request_middleware.go:48
+29. github.com/gogf/gf/v2/net/ghttp.(*Server).ServeHTTP
+    /Users/apple/work/go/pkg/mod/github.com/gogf/gf/v2@v2.0.6/net/ghttp/ghttp_server_handler.go:121
+ 
+2022-08-05 14:32:15.069 [DEBU] {08a3bdb3325f08173b56e90f347328cb} [1012 ms] [default] [rows:3  ] SHOW FULL COLUMNS FROM `Address` 
+2022-08-05 14:32:15.743 [DEBU] {08a3bdb3325f08173b56e90f347328cb} [672 ms] [default] [rows:1  ] SELECT COUNT(1) FROM `Address` WHERE `addr`='ss' 
+2022-08-05 14:32:16.462 [ERRO] {08a3bdb3325f08173b56e90f347328cb} [718 ms] [default] [rows:0  ] INSERT INTO `Address`(`addr`) VALUES('xxx') 
+Error: Error 1062: Duplicate entry 'xxx' for key 'addr' 
+Stack:
+1.  github.com/gogf/gf/v2/database/gdb.(*Core).writeSqlToLogger
+    /Users/apple/work/go/pkg/mod/github.com/gogf/gf/v2@v2.0.6/database/gdb/gdb_core.go:662
+2.  github.com/gogf/gf/v2/database/gdb.(*Core).DoCommit
+    /Users/apple/work/go/pkg/mod/github.com/gogf/gf/v2@v2.0.6/database/gdb/gdb_core_underlying.go:300
+3.  github.com/gogf/gf/v2/database/gdb.(*Core).DoExec
+    /Users/apple/work/go/pkg/mod/github.com/gogf/gf/v2@v2.0.6/database/gdb/gdb_core_underlying.go:112
+4.  github.com/gogf/gf/v2/database/gdb.(*Core).DoInsert
+    /Users/apple/work/go/pkg/mod/github.com/gogf/gf/v2@v2.0.6/database/gdb/gdb_core.go:451
+5.  github.com/gogf/gf/v2/database/gdb.(*HookInsertInput).Next
+    /Users/apple/work/go/pkg/mod/github.com/gogf/gf/v2@v2.0.6/database/gdb/gdb_model_hook.go:119
+6.  github.com/gogf/gf/v2/database/gdb.(*Model).doInsertWithOption
+    /Users/apple/work/go/pkg/mod/github.com/gogf/gf/v2@v2.0.6/database/gdb/gdb_model_insert.go:335
+7.  github.com/gogf/gf/v2/database/gdb.(*Model).Insert
+    /Users/apple/work/go/pkg/mod/github.com/gogf/gf/v2@v2.0.6/database/gdb/gdb_model_insert.go:175
+8.  github.com/gogf/gf/v2/database/gdb.(*Model).Insert
+    /Users/apple/work/go/pkg/mod/github.com/gogf/gf/v2@v2.0.6/database/gdb/gdb_model_insert.go:173
+9.  zzw/internal/service.(*sWhite).AddWhite
+    /Users/apple/work/go/src/project/zzw/internal/service/white.go:46
+10. zzw/internal/controller.(*cWhite).AddWhite
+    /Users/apple/work/go/src/project/zzw/internal/controller/white.go:28
+11. github.com/gogf/gf/v2/net/ghttp.(*middleware).callHandlerFunc.func1
+    /Users/apple/work/go/pkg/mod/github.com/gogf/gf/v2@v2.0.6/net/ghttp/ghttp_request_middleware.go:151
+12. github.com/gogf/gf/v2/net/ghttp.niceCallFunc
+    /Users/apple/work/go/pkg/mod/github.com/gogf/gf/v2@v2.0.6/net/ghttp/ghttp_func.go:56
+13. github.com/gogf/gf/v2/net/ghttp.(*middleware).callHandlerFunc
+    /Users/apple/work/go/pkg/mod/github.com/gogf/gf/v2@v2.0.6/net/ghttp/ghttp_request_middleware.go:128
+14. github.com/gogf/gf/v2/net/ghttp.(*middleware).Next.func1
+    /Users/apple/work/go/pkg/mod/github.com/gogf/gf/v2@v2.0.6/net/ghttp/ghttp_request_middleware.go:74
+15. github.com/gogf/gf/v2/util/gutil.TryCatch
+    /Users/apple/work/go/pkg/mod/github.com/gogf/gf/v2@v2.0.6/util/gutil/gutil.go:55
+16. github.com/gogf/gf/v2/net/ghttp.(*middleware).Next
+    /Users/apple/work/go/pkg/mod/github.com/gogf/gf/v2@v2.0.6/net/ghttp/ghttp_request_middleware.go:48
+17. github.com/gogf/gf/v2/net/ghttp.MiddlewareHandlerResponse
+    /Users/apple/work/go/pkg/mod/github.com/gogf/gf/v2@v2.0.6/net/ghttp/ghttp_middleware_handler_response.go:26
+18. github.com/gogf/gf/v2/net/ghttp.(*middleware).Next.func1.1
+    /Users/apple/work/go/pkg/mod/github.com/gogf/gf/v2@v2.0.6/net/ghttp/ghttp_request_middleware.go:54
+19. github.com/gogf/gf/v2/net/ghttp.niceCallFunc
+    /Users/apple/work/go/pkg/mod/github.com/gogf/gf/v2@v2.0.6/net/ghttp/ghttp_func.go:56
+20. github.com/gogf/gf/v2/net/ghttp.(*middleware).Next.func1
+    /Users/apple/work/go/pkg/mod/github.com/gogf/gf/v2@v2.0.6/net/ghttp/ghttp_request_middleware.go:53
+21. github.com/gogf/gf/v2/util/gutil.TryCatch
+    /Users/apple/work/go/pkg/mod/github.com/gogf/gf/v2@v2.0.6/util/gutil/gutil.go:55
+22. github.com/gogf/gf/v2/net/ghttp.(*middleware).Next
+    /Users/apple/work/go/pkg/mod/github.com/gogf/gf/v2@v2.0.6/net/ghttp/ghttp_request_middleware.go:48
+23. github.com/gogf/gf/v2/net/ghttp.internalMiddlewareServerTracing
+    /Users/apple/work/go/pkg/mod/github.com/gogf/gf/v2@v2.0.6/net/ghttp/ghttp_middleware_tracing.go:78
+24. github.com/gogf/gf/v2/net/ghttp.(*middleware).Next.func1.5
+    /Users/apple/work/go/pkg/mod/github.com/gogf/gf/v2@v2.0.6/net/ghttp/ghttp_request_middleware.go:95
+25. github.com/gogf/gf/v2/net/ghttp.niceCallFunc
+    /Users/apple/work/go/pkg/mod/github.com/gogf/gf/v2@v2.0.6/net/ghttp/ghttp_func.go:56
+26. github.com/gogf/gf/v2/net/ghttp.(*middleware).Next.func1
+    /Users/apple/work/go/pkg/mod/github.com/gogf/gf/v2@v2.0.6/net/ghttp/ghttp_request_middleware.go:94
+27. github.com/gogf/gf/v2/util/gutil.TryCatch
+    /Users/apple/work/go/pkg/mod/github.com/gogf/gf/v2@v2.0.6/util/gutil/gutil.go:55
+28. github.com/gogf/gf/v2/net/ghttp.(*middleware).Next
+    /Users/apple/work/go/pkg/mod/github.com/gogf/gf/v2@v2.0.6/net/ghttp/ghttp_request_middleware.go:48
+29. github.com/gogf/gf/v2/net/ghttp.(*Server).ServeHTTP
+    /Users/apple/work/go/pkg/mod/github.com/gogf/gf/v2@v2.0.6/net/ghttp/ghttp_server_handler.go:121
+ 
+2022-08-05 14:33:12.162 [DEBU] {f8ec65f13f5f081700031e7cb19e8b06} [1236 ms] [default] [rows:3  ] SHOW FULL COLUMNS FROM `Address` 
+2022-08-05 14:33:12.989 [DEBU] {f8ec65f13f5f081700031e7cb19e8b06} [827 ms] [default] [rows:1  ] SELECT COUNT(1) FROM `Address` WHERE `addr`='xxx' 
+2022-08-05 14:38:05.032 [DEBU] {40c10726845f0817d7225076f2ad55b6} [1166 ms] [default] [rows:3  ] SHOW FULL COLUMNS FROM `Address` 
+2022-08-05 14:38:05.954 [DEBU] {40c10726845f0817d7225076f2ad55b6} [919 ms] [default] [rows:1  ] SELECT COUNT(1) FROM `Address` WHERE `addr`='0xd07bdb622a7E9d519a17c4C097Bc479012761880
+' 
+2022-08-05 14:38:06.672 [DEBU] {40c10726845f0817d7225076f2ad55b6} [717 ms] [default] [rows:1  ] INSERT INTO `Address`(`addr`) VALUES('0xd07bdb622a7E9d519a17c4C097Bc479012761880
+')  
+2022-08-05 14:39:33.454 [DEBU] {c881d6ae985f0817d8225076d9e37458} [1395 ms] [default] [rows:1  ] SELECT COUNT(1) FROM `Address` WHERE `addr`='0xd07bdb622a7E9d519a17c4C097Bc479012761880' 
+2022-08-05 14:40:22.556 [DEBU] {70b14809a45f0817d9225076ade90e17} [1735 ms] [default] [rows:1  ] SELECT COUNT(1) FROM `Address` WHERE `addr`='0xd07bdb622a7E9d519a17c4C097Bc479012761880' 
+2022-08-05 14:40:47.323 [DEBU] {107680fda95f08179eccab485d655c75} [927 ms] [default] [rows:3  ] SHOW FULL COLUMNS FROM `Address` 
+2022-08-05 14:40:47.951 [DEBU] {107680fda95f08179eccab485d655c75} [627 ms] [default] [rows:1  ] SELECT COUNT(1) FROM `Address` WHERE `addr`='0xd07bdb622a7E9d519a17c4C097Bc479012761880' 
+2022-08-05 14:40:53.278 [DEBU] {08588978ab5f08179fccab483fe5305b} [525 ms] [default] [rows:1  ] SELECT COUNT(1) FROM `Address` WHERE `addr`='xxx' 
+2022-08-05 14:41:01.470 [DEBU] {18a3665cad5f0817a1ccab488a909b0c} [600 ms] [default] [rows:1  ] SELECT COUNT(1) FROM `Address` WHERE `addr`='0xd07bdb622a7E9d519a17c4C097Bc479012761880' 
+2022-08-05 14:41:02.097 [ERRO] {18a3665cad5f0817a1ccab488a909b0c} [626 ms] [default] [rows:0  ] INSERT INTO `Address`(`addr`) VALUES('0xd07bdb622a7E9d519a17c4C097Bc479012761880') 
+Error: Error 1062: Duplicate entry '0xd07bdb622a7E9d519a17c4C097Bc47' for key 'addr' 
+Stack:
+1.  github.com/gogf/gf/v2/database/gdb.(*Core).writeSqlToLogger
+    /Users/apple/work/go/pkg/mod/github.com/gogf/gf/v2@v2.0.6/database/gdb/gdb_core.go:662
+2.  github.com/gogf/gf/v2/database/gdb.(*Core).DoCommit
+    /Users/apple/work/go/pkg/mod/github.com/gogf/gf/v2@v2.0.6/database/gdb/gdb_core_underlying.go:300
+3.  github.com/gogf/gf/v2/database/gdb.(*Core).DoExec
+    /Users/apple/work/go/pkg/mod/github.com/gogf/gf/v2@v2.0.6/database/gdb/gdb_core_underlying.go:112
+4.  github.com/gogf/gf/v2/database/gdb.(*Core).DoInsert
+    /Users/apple/work/go/pkg/mod/github.com/gogf/gf/v2@v2.0.6/database/gdb/gdb_core.go:451
+5.  github.com/gogf/gf/v2/database/gdb.(*HookInsertInput).Next
+    /Users/apple/work/go/pkg/mod/github.com/gogf/gf/v2@v2.0.6/database/gdb/gdb_model_hook.go:119
+6.  github.com/gogf/gf/v2/database/gdb.(*Model).doInsertWithOption
+    /Users/apple/work/go/pkg/mod/github.com/gogf/gf/v2@v2.0.6/database/gdb/gdb_model_insert.go:335
+7.  github.com/gogf/gf/v2/database/gdb.(*Model).Insert
+    /Users/apple/work/go/pkg/mod/github.com/gogf/gf/v2@v2.0.6/database/gdb/gdb_model_insert.go:175
+8.  github.com/gogf/gf/v2/database/gdb.(*Model).Insert
+    /Users/apple/work/go/pkg/mod/github.com/gogf/gf/v2@v2.0.6/database/gdb/gdb_model_insert.go:173
+9.  zzw/internal/service.(*sWhite).AddWhite
+    /Users/apple/work/go/src/project/zzw/internal/service/white.go:46
+10. zzw/internal/controller.(*cWhite).AddWhite
+    /Users/apple/work/go/src/project/zzw/internal/controller/white.go:29
+11. github.com/gogf/gf/v2/net/ghttp.(*middleware).callHandlerFunc.func1
+    /Users/apple/work/go/pkg/mod/github.com/gogf/gf/v2@v2.0.6/net/ghttp/ghttp_request_middleware.go:151
+12. github.com/gogf/gf/v2/net/ghttp.niceCallFunc
+    /Users/apple/work/go/pkg/mod/github.com/gogf/gf/v2@v2.0.6/net/ghttp/ghttp_func.go:56
+13. github.com/gogf/gf/v2/net/ghttp.(*middleware).callHandlerFunc
+    /Users/apple/work/go/pkg/mod/github.com/gogf/gf/v2@v2.0.6/net/ghttp/ghttp_request_middleware.go:128
+14. github.com/gogf/gf/v2/net/ghttp.(*middleware).Next.func1
+    /Users/apple/work/go/pkg/mod/github.com/gogf/gf/v2@v2.0.6/net/ghttp/ghttp_request_middleware.go:74
+15. github.com/gogf/gf/v2/util/gutil.TryCatch
+    /Users/apple/work/go/pkg/mod/github.com/gogf/gf/v2@v2.0.6/util/gutil/gutil.go:55
+16. github.com/gogf/gf/v2/net/ghttp.(*middleware).Next
+    /Users/apple/work/go/pkg/mod/github.com/gogf/gf/v2@v2.0.6/net/ghttp/ghttp_request_middleware.go:48
+17. github.com/gogf/gf/v2/net/ghttp.MiddlewareHandlerResponse
+    /Users/apple/work/go/pkg/mod/github.com/gogf/gf/v2@v2.0.6/net/ghttp/ghttp_middleware_handler_response.go:26
+18. github.com/gogf/gf/v2/net/ghttp.(*middleware).Next.func1.1
+    /Users/apple/work/go/pkg/mod/github.com/gogf/gf/v2@v2.0.6/net/ghttp/ghttp_request_middleware.go:54
+19. github.com/gogf/gf/v2/net/ghttp.niceCallFunc
+    /Users/apple/work/go/pkg/mod/github.com/gogf/gf/v2@v2.0.6/net/ghttp/ghttp_func.go:56
+20. github.com/gogf/gf/v2/net/ghttp.(*middleware).Next.func1
+    /Users/apple/work/go/pkg/mod/github.com/gogf/gf/v2@v2.0.6/net/ghttp/ghttp_request_middleware.go:53
+21. github.com/gogf/gf/v2/util/gutil.TryCatch
+    /Users/apple/work/go/pkg/mod/github.com/gogf/gf/v2@v2.0.6/util/gutil/gutil.go:55
+22. github.com/gogf/gf/v2/net/ghttp.(*middleware).Next
+    /Users/apple/work/go/pkg/mod/github.com/gogf/gf/v2@v2.0.6/net/ghttp/ghttp_request_middleware.go:48
+23. github.com/gogf/gf/v2/net/ghttp.internalMiddlewareServerTracing
+    /Users/apple/work/go/pkg/mod/github.com/gogf/gf/v2@v2.0.6/net/ghttp/ghttp_middleware_tracing.go:78
+24. github.com/gogf/gf/v2/net/ghttp.(*middleware).Next.func1.5
+    /Users/apple/work/go/pkg/mod/github.com/gogf/gf/v2@v2.0.6/net/ghttp/ghttp_request_middleware.go:95
+25. github.com/gogf/gf/v2/net/ghttp.niceCallFunc
+    /Users/apple/work/go/pkg/mod/github.com/gogf/gf/v2@v2.0.6/net/ghttp/ghttp_func.go:56
+26. github.com/gogf/gf/v2/net/ghttp.(*middleware).Next.func1
+    /Users/apple/work/go/pkg/mod/github.com/gogf/gf/v2@v2.0.6/net/ghttp/ghttp_request_middleware.go:94
+27. github.com/gogf/gf/v2/util/gutil.TryCatch
+    /Users/apple/work/go/pkg/mod/github.com/gogf/gf/v2@v2.0.6/util/gutil/gutil.go:55
+28. github.com/gogf/gf/v2/net/ghttp.(*middleware).Next
+    /Users/apple/work/go/pkg/mod/github.com/gogf/gf/v2@v2.0.6/net/ghttp/ghttp_request_middleware.go:48
+29. github.com/gogf/gf/v2/net/ghttp.(*Server).ServeHTTP
+    /Users/apple/work/go/pkg/mod/github.com/gogf/gf/v2@v2.0.6/net/ghttp/ghttp_server_handler.go:121
+ 
+2022-08-05 14:43:03.734 [DEBU] {38ef7b73c95f0817a2ccab48d8a72772} [2218 ms] [default] [rows:1  ] SELECT COUNT(1) FROM `Address` WHERE `addr`='0xd07bdb622a7E9d519a17c4C097Bc47' 
+2022-08-05 14:50:14.963 [DEBU] {6811b0142e600817a3ccab48e50b1862} [1245 ms] [default] [rows:1  ] SELECT COUNT(1) FROM `Address` WHERE `addr`='0xd07bdb622a7E9d519a17c4C097Bc479012761880' 
+2022-08-05 14:50:15.559 [DEBU] {6811b0142e600817a3ccab48e50b1862} [593 ms] [default] [rows:1  ] INSERT INTO `Address`(`addr`) VALUES('0xd07bdb622a7E9d519a17c4C097Bc479012761880')  
+2022-08-05 14:50:25.180 [DEBU] {60036e9c30600817a4ccab4888179712} [595 ms] [default] [rows:1  ] SELECT COUNT(1) FROM `Address` WHERE `addr`='0xd07bdb622a7E9d519a17c4C097Bc479012761880' 
+2022-08-05 14:50:31.428 [DEBU] {484617c231600817a5ccab489c0ac352} [1916 ms] [default] [rows:1  ] SELECT COUNT(1) FROM `Address` WHERE `addr`='0xd07bdb622a7E9d519a17c4C097Bc479012761880' 
+2022-08-05 14:50:43.614 [DEBU] {70f16fe334600817a6ccab489af387c8} [658 ms] [default] [rows:1  ] SELECT COUNT(1) FROM `Address` WHERE `addr`='0xd07bdb622a7E9d519a17c4C097Bc479012761880' 
+2022-08-05 15:19:28.630 [DEBU] {e04efd6dc66108177aac4502a252771d} [1067 ms] [default] [rows:3  ] SHOW FULL COLUMNS FROM `Address` 
+2022-08-05 15:19:29.131 [DEBU] {e04efd6dc66108177aac4502a252771d} [499 ms] [default] [rows:1  ] SELECT COUNT(1) FROM `Address` WHERE `addr`='cc' 
+2022-08-05 15:19:29.678 [DEBU] {e04efd6dc66108177aac4502a252771d} [547 ms] [default] [rows:1  ] INSERT INTO `Address`(`addr`) VALUES('cc')  
+2022-08-05 15:43:52.878 [DEBU] {80fef36419630817c05b67747c29952f} [9472 ms] [default] [rows:3  ] SHOW FULL COLUMNS FROM `Address` 
+2022-08-05 15:43:53.616 [DEBU] {80fef36419630817c05b67747c29952f} [736 ms] [default] [rows:1  ] SELECT COUNT(1) FROM `Address` WHERE `addr`='asimov
+zzw' 
+2022-08-05 15:44:54.938 [DEBU] {10070d7629630817c15b6774c65c8580} [2527 ms] [default] [rows:1  ] SELECT COUNT(1) FROM `Address` WHERE `addr`='asimov
+zzw' 
+2022-08-05 15:58:31.986 [DEBU] {48fe8df7e7630817c25b67745888ad30} [1358 ms] [default] [rows:1  ] SELECT COUNT(1) FROM `Address` WHERE `addr`='asimov
+zzw' 
+2022-08-05 15:58:58.117 [DEBU] {4094401fee6308176716617ee3ecf688} [1052 ms] [default] [rows:3  ] SHOW FULL COLUMNS FROM `Address` 
+2022-08-05 15:58:58.630 [DEBU] {4094401fee6308176716617ee3ecf688} [512 ms] [default] [rows:1  ] SELECT COUNT(1) FROM `Address` WHERE `addr`='asimov
+zzw' 
+2022-08-05 16:00:05.271 [DEBU] {e01f15b5fd6308174ad7a9479591ce92} [1268 ms] [default] [rows:3  ] SHOW FULL COLUMNS FROM `Address` 
+2022-08-05 16:00:05.728 [DEBU] {e01f15b5fd6308174ad7a9479591ce92} [456 ms] [default] [rows:1  ] SELECT COUNT(1) FROM `Address` WHERE `addr`='asimov
+zzw' 
+2022-08-05 16:00:18.623 [DEBU] {9801eefd006408174cd7a94796fad4d9} [514 ms] [default] [rows:1  ] SELECT COUNT(1) FROM `Address` WHERE `addr`='zzw
+asimov' 
+2022-08-05 16:00:19.300 [DEBU] {9801eefd006408174cd7a94796fad4d9} [677 ms] [default] [rows:1  ] INSERT INTO `Address`(`addr`) VALUES('zzw
+asimov')  
+2022-08-05 17:54:06.031 [DEBU] {b0ad236e366a08172484b4620edc71d8} [1335 ms] [default] [rows:3  ] SHOW FULL COLUMNS FROM `Address` 
+2022-08-05 17:54:06.553 [DEBU] {b0ad236e366a08172484b4620edc71d8} [520 ms] [default] [rows:1  ] SELECT COUNT(1) FROM `Address` WHERE `addr`='xxx' 
+2022-08-05 18:18:10.008 [DEBU] {402bb299866b08172584b462c0b8e0ea} [1474 ms] [default] [rows:1  ] SELECT COUNT(1) FROM `Address` WHERE `addr`='xxx' 
+2022-08-05 18:20:01.351 [DEBU] {20b24391a06b08172684b4627c726d45} [1289 ms] [default] [rows:1  ] SELECT COUNT(1) FROM `Address` WHERE `addr`='xxx' 
+2022-08-05 22:15:50.698 [DEBU] {681033f27e7808174a4b157c631ce0d4} [1387 ms] [default] [rows:3  ] SHOW FULL COLUMNS FROM `Address` 
+2022-08-05 22:15:51.417 [DEBU] {681033f27e7808174a4b157c631ce0d4} [716 ms] [default] [rows:1  ] SELECT COUNT(1) FROM `Address` WHERE `addr`='xxx' 
+2022-08-05 22:16:18.237 [DEBU] {48d0038a857808174b4b157c1a5a767f} [610 ms] [default] [rows:1  ] SELECT COUNT(1) FROM `Address` WHERE `addr`='xxx' 
+2022-08-05 22:23:48.823 [DEBU] {7087a144ee7808174c4b157c7c6ea4d8} [1388 ms] [default] [rows:1  ] SELECT COUNT(1) FROM `Address` WHERE `addr`='asimov' 
+2022-08-05 22:25:54.449 [DEBU] {90f9bb610b790817c657617c4294b23d} [1969 ms] [default] [rows:3  ] SHOW FULL COLUMNS FROM `Address` 
+2022-08-05 22:25:54.988 [DEBU] {90f9bb610b790817c657617c4294b23d} [537 ms] [default] [rows:1  ] SELECT COUNT(1) FROM `Address` WHERE `addr`='asimov' 
+2022-08-05 22:27:23.735 [DEBU] {c815e33f20790817c757617cdda864d7} [1631 ms] [default] [rows:1  ] SELECT COUNT(1) FROM `Address` WHERE `addr`='asimov' 
+2022-08-05 22:27:58.755 [DEBU] {c851ab6a28790817c857617c6ef408aa} [1574 ms] [default] [rows:1  ] SELECT COUNT(1) FROM `Address` WHERE `addr`='asimov' 
+2022-08-05 22:28:09.539 [DEBU] {18600a282b790817ca57617c97712a3a} [591 ms] [default] [rows:1  ] SELECT COUNT(1) FROM `Address` WHERE `addr`='asimov' 
+2022-08-05 22:55:46.683 [DEBU] {18aeb1c8ac7a0817d257617c061b5d8f} [1477 ms] [default] [rows:1  ] SELECT COUNT(1) FROM `Address` WHERE `addr`='asimov' 
+2022-08-05 22:56:44.664 [DEBU] {38fcac60ba7a0817390c85566bfc1c67} [1073 ms] [default] [rows:3  ] SHOW FULL COLUMNS FROM `Address` 
+2022-08-05 22:56:45.434 [DEBU] {38fcac60ba7a0817390c85566bfc1c67} [769 ms] [default] [rows:1  ] SELECT COUNT(1) FROM `Address` WHERE `addr`='asimov' 
+2022-08-05 22:57:13.678 [DEBU] {f008d940c17a08173a0c8556b04e5757} [557 ms] [default] [rows:1  ] SELECT COUNT(1) FROM `Address` WHERE `addr`='asimov' 
+2022-08-05 22:57:50.665 [DEBU] {38d15baac97a08173b0c85560d38622c} [1414 ms] [default] [rows:1  ] SELECT COUNT(1) FROM `Address` WHERE `addr`='asimov' 
+2022-08-05 23:00:00.323 [DEBU] {30645ed1e77a08173c0c8556342e7388} [1568 ms] [default] [rows:1  ] SELECT COUNT(1) FROM `Address` WHERE `addr`='asimov' 

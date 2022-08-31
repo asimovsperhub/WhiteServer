@@ -1,0 +1,11 @@
+2022-08-04 18:45:42.291 [DEBU] {f076b89e721e081773f9235a7264d347} [1963 ms] [default] [rows:3  ] SHOW FULL COLUMNS FROM `Address` 
+2022-08-04 18:45:43.133 [DEBU] {f076b89e721e081773f9235a7264d347} [842 ms] [default] [rows:1  ] SELECT COUNT(1) FROM `Address` WHERE `addr`='"xxx"' 
+2022-08-04 19:53:53.440 [DEBU] {f8ca695c2b220817f91fa96e68f602c7} [1123 ms] [default] [rows:3  ] SHOW FULL COLUMNS FROM `Address` 
+2022-08-04 19:53:53.977 [DEBU] {f8ca695c2b220817f91fa96e68f602c7} [534 ms] [default] [rows:0  ] UPDATE `Address` SET addr='xxx' WHERE `iswhite`=1 
+2022-08-04 19:54:25.876 [DEBU] {58b152c132220817fa1fa96ef7595e3b} [1803 ms] [default] [rows:0  ] UPDATE `Address` SET addr='xxx' WHERE `iswhite`=1 
+2022-08-04 19:54:32.731 [DEBU] {98e479a734220817fc1fa96e98ecdd5c} [501 ms] [default] [rows:0  ] UPDATE `Address` SET addr='xxx' WHERE `iswhite`=1 
+2022-08-04 19:55:52.711 [DEBU] {a82597ea46220817fe1fa96e83753a3e} [2046 ms] [default] [rows:0  ] UPDATE `Address` SET addr='xxx' WHERE `iswhite`=1 
+2022-08-04 20:07:43.472 [DEBU] {80319d87ec2208170520a96e41c4f4a6} [1503 ms] [default] [rows:0  ] UPDATE `Address` SET addr='xxx' WHERE `iswhite`=1 
+2022-08-04 20:16:41.235 [DEBU] {a85109bf692308170b20a96e6c6e88b0} [1465 ms] [default] [rows:0  ] UPDATE `Address` SET addr='xxx' WHERE `iswhite`=1 
+2022-08-04 20:16:41.490 [DEBU] {382a28dd692308170c20a96ee00277e7} [1215 ms] [default] [rows:0  ] UPDATE `Address` SET addr='xxx' WHERE `iswhite`=1 
+2022-08-04 20:17:06.888 [DEBU] {98410bdc6f2308170e20a96e5275240c} [862 ms] [default] [rows:0  ] UPDATE `Address` SET addr='xxx' WHERE `iswhite`=1 

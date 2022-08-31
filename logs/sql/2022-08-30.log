@@ -1,0 +1,154 @@
+2022-08-30 14:07:38.905 [DEBU] {f87643cd530a101723bd2d073ea030ce} [41362 ms] [default] [rows:3  ] SHOW FULL COLUMNS FROM `Address` 
+2022-08-30 14:07:40.714 [DEBU] {f87643cd530a101723bd2d073ea030ce} [1808 ms] [default] [rows:1  ] SELECT COUNT(1) FROM `Address` WHERE `addr`='0xbE2A4a05E22d2fe0d049052272edDcBF3c554062' 
+2022-08-30 14:07:40.811 [DEBU] {e0aa1dc6550a101724bd2d072fc62acd} [1905 ms] [default] [rows:1  ] SELECT COUNT(1) FROM `Address` WHERE `addr`='0xbE2A4a05E22d2fe0d049052272edDcBF3c554062' 
+2022-08-30 14:07:41.181 [DEBU] {98b64c2c5c0a101725bd2d07e61b52df} [2275 ms] [default] [rows:1  ] SELECT COUNT(1) FROM `Address` WHERE `addr`='0xbE2A4a05E22d2fe0d049052272edDcBF3c554062' 
+2022-08-30 14:08:01.029 [DEBU] {98b64c2c5c0a101725bd2d07e61b52df} [19847 ms] [default] [rows:1  ] INSERT INTO `Address`(`addr`) VALUES('0xbE2A4a05E22d2fe0d049052272edDcBF3c554062')  
+2022-08-30 14:08:01.639 [DEBU] {98b64c2c5c0a101725bd2d07e61b52df} [608 ms] [default] [rows:1  ] SELECT COUNT(1) FROM `Address` WHERE `addr`='' 
+2022-08-30 14:08:04.608 [ERRO] {f87643cd530a101723bd2d073ea030ce} [23891 ms] [default] [rows:0  ] INSERT INTO `Address`(`addr`) VALUES('0xbE2A4a05E22d2fe0d049052272edDcBF3c554062') 
+Error: Error 1062: Duplicate entry '0xbE2A4a05E22d2fe0d049052272edDcBF3c554062' for key 'addr' 
+Stack:
+1.  github.com/gogf/gf/v2/database/gdb.(*Core).writeSqlToLogger
+    /Users/apple/work/go/pkg/mod/github.com/gogf/gf/v2@v2.0.6/database/gdb/gdb_core.go:662
+2.  github.com/gogf/gf/v2/database/gdb.(*Core).DoCommit
+    /Users/apple/work/go/pkg/mod/github.com/gogf/gf/v2@v2.0.6/database/gdb/gdb_core_underlying.go:300
+3.  github.com/gogf/gf/v2/database/gdb.(*Core).DoExec
+    /Users/apple/work/go/pkg/mod/github.com/gogf/gf/v2@v2.0.6/database/gdb/gdb_core_underlying.go:112
+4.  github.com/gogf/gf/v2/database/gdb.(*Core).DoInsert
+    /Users/apple/work/go/pkg/mod/github.com/gogf/gf/v2@v2.0.6/database/gdb/gdb_core.go:451
+5.  github.com/gogf/gf/v2/database/gdb.(*HookInsertInput).Next
+    /Users/apple/work/go/pkg/mod/github.com/gogf/gf/v2@v2.0.6/database/gdb/gdb_model_hook.go:119
+6.  github.com/gogf/gf/v2/database/gdb.(*Model).doInsertWithOption
+    /Users/apple/work/go/pkg/mod/github.com/gogf/gf/v2@v2.0.6/database/gdb/gdb_model_insert.go:335
+7.  github.com/gogf/gf/v2/database/gdb.(*Model).Insert
+    /Users/apple/work/go/pkg/mod/github.com/gogf/gf/v2@v2.0.6/database/gdb/gdb_model_insert.go:175
+8.  github.com/gogf/gf/v2/database/gdb.(*Model).Insert
+    /Users/apple/work/go/pkg/mod/github.com/gogf/gf/v2@v2.0.6/database/gdb/gdb_model_insert.go:173
+9.  zzw/internal/service.(*sWhite).AddWhite
+    /Users/apple/work/go/src/project/zzw/internal/service/white.go:43
+10. zzw/internal/controller.(*cWhite).AddWhite
+    /Users/apple/work/go/src/project/zzw/internal/controller/white.go:29
+11. github.com/gogf/gf/v2/net/ghttp.(*middleware).callHandlerFunc.func1
+    /Users/apple/work/go/pkg/mod/github.com/gogf/gf/v2@v2.0.6/net/ghttp/ghttp_request_middleware.go:151
+12. github.com/gogf/gf/v2/net/ghttp.niceCallFunc
+    /Users/apple/work/go/pkg/mod/github.com/gogf/gf/v2@v2.0.6/net/ghttp/ghttp_func.go:56
+13. github.com/gogf/gf/v2/net/ghttp.(*middleware).callHandlerFunc
+    /Users/apple/work/go/pkg/mod/github.com/gogf/gf/v2@v2.0.6/net/ghttp/ghttp_request_middleware.go:128
+14. github.com/gogf/gf/v2/net/ghttp.(*middleware).Next.func1
+    /Users/apple/work/go/pkg/mod/github.com/gogf/gf/v2@v2.0.6/net/ghttp/ghttp_request_middleware.go:74
+15. github.com/gogf/gf/v2/util/gutil.TryCatch
+    /Users/apple/work/go/pkg/mod/github.com/gogf/gf/v2@v2.0.6/util/gutil/gutil.go:55
+16. github.com/gogf/gf/v2/net/ghttp.(*middleware).Next
+    /Users/apple/work/go/pkg/mod/github.com/gogf/gf/v2@v2.0.6/net/ghttp/ghttp_request_middleware.go:48
+17. github.com/gogf/gf/v2/net/ghttp.MiddlewareHandlerResponse
+    /Users/apple/work/go/pkg/mod/github.com/gogf/gf/v2@v2.0.6/net/ghttp/ghttp_middleware_handler_response.go:26
+18. github.com/gogf/gf/v2/net/ghttp.(*middleware).Next.func1.1
+    /Users/apple/work/go/pkg/mod/github.com/gogf/gf/v2@v2.0.6/net/ghttp/ghttp_request_middleware.go:54
+19. github.com/gogf/gf/v2/net/ghttp.niceCallFunc
+    /Users/apple/work/go/pkg/mod/github.com/gogf/gf/v2@v2.0.6/net/ghttp/ghttp_func.go:56
+20. github.com/gogf/gf/v2/net/ghttp.(*middleware).Next.func1
+    /Users/apple/work/go/pkg/mod/github.com/gogf/gf/v2@v2.0.6/net/ghttp/ghttp_request_middleware.go:53
+21. github.com/gogf/gf/v2/util/gutil.TryCatch
+    /Users/apple/work/go/pkg/mod/github.com/gogf/gf/v2@v2.0.6/util/gutil/gutil.go:55
+22. github.com/gogf/gf/v2/net/ghttp.(*middleware).Next
+    /Users/apple/work/go/pkg/mod/github.com/gogf/gf/v2@v2.0.6/net/ghttp/ghttp_request_middleware.go:48
+23. zzw/internal/cmd.MiddlewareCORS
+    /Users/apple/work/go/src/project/zzw/internal/cmd/cmd.go:15
+24. github.com/gogf/gf/v2/net/ghttp.(*middleware).Next.func1.1
+    /Users/apple/work/go/pkg/mod/github.com/gogf/gf/v2@v2.0.6/net/ghttp/ghttp_request_middleware.go:54
+25. github.com/gogf/gf/v2/net/ghttp.niceCallFunc
+    /Users/apple/work/go/pkg/mod/github.com/gogf/gf/v2@v2.0.6/net/ghttp/ghttp_func.go:56
+26. github.com/gogf/gf/v2/net/ghttp.(*middleware).Next.func1
+    /Users/apple/work/go/pkg/mod/github.com/gogf/gf/v2@v2.0.6/net/ghttp/ghttp_request_middleware.go:53
+27. github.com/gogf/gf/v2/util/gutil.TryCatch
+    /Users/apple/work/go/pkg/mod/github.com/gogf/gf/v2@v2.0.6/util/gutil/gutil.go:55
+28. github.com/gogf/gf/v2/net/ghttp.(*middleware).Next
+    /Users/apple/work/go/pkg/mod/github.com/gogf/gf/v2@v2.0.6/net/ghttp/ghttp_request_middleware.go:48
+29. github.com/gogf/gf/v2/net/ghttp.internalMiddlewareServerTracing
+    /Users/apple/work/go/pkg/mod/github.com/gogf/gf/v2@v2.0.6/net/ghttp/ghttp_middleware_tracing.go:78
+30. github.com/gogf/gf/v2/net/ghttp.(*middleware).Next.func1.5
+    /Users/apple/work/go/pkg/mod/github.com/gogf/gf/v2@v2.0.6/net/ghttp/ghttp_request_middleware.go:95
+31. github.com/gogf/gf/v2/net/ghttp.niceCallFunc
+    /Users/apple/work/go/pkg/mod/github.com/gogf/gf/v2@v2.0.6/net/ghttp/ghttp_func.go:56
+32. github.com/gogf/gf/v2/net/ghttp.(*middleware).Next.func1
+    /Users/apple/work/go/pkg/mod/github.com/gogf/gf/v2@v2.0.6/net/ghttp/ghttp_request_middleware.go:94
+33. github.com/gogf/gf/v2/util/gutil.TryCatch
+    /Users/apple/work/go/pkg/mod/github.com/gogf/gf/v2@v2.0.6/util/gutil/gutil.go:55
+34. github.com/gogf/gf/v2/net/ghttp.(*middleware).Next
+    /Users/apple/work/go/pkg/mod/github.com/gogf/gf/v2@v2.0.6/net/ghttp/ghttp_request_middleware.go:48
+35. github.com/gogf/gf/v2/net/ghttp.(*Server).ServeHTTP
+    /Users/apple/work/go/pkg/mod/github.com/gogf/gf/v2@v2.0.6/net/ghttp/ghttp_server_handler.go:121
+ 
+2022-08-30 14:08:04.611 [ERRO] {e0aa1dc6550a101724bd2d072fc62acd} [23799 ms] [default] [rows:0  ] INSERT INTO `Address`(`addr`) VALUES('0xbE2A4a05E22d2fe0d049052272edDcBF3c554062') 
+Error: Error 1062: Duplicate entry '0xbE2A4a05E22d2fe0d049052272edDcBF3c554062' for key 'addr' 
+Stack:
+1.  github.com/gogf/gf/v2/database/gdb.(*Core).writeSqlToLogger
+    /Users/apple/work/go/pkg/mod/github.com/gogf/gf/v2@v2.0.6/database/gdb/gdb_core.go:662
+2.  github.com/gogf/gf/v2/database/gdb.(*Core).DoCommit
+    /Users/apple/work/go/pkg/mod/github.com/gogf/gf/v2@v2.0.6/database/gdb/gdb_core_underlying.go:300
+3.  github.com/gogf/gf/v2/database/gdb.(*Core).DoExec
+    /Users/apple/work/go/pkg/mod/github.com/gogf/gf/v2@v2.0.6/database/gdb/gdb_core_underlying.go:112
+4.  github.com/gogf/gf/v2/database/gdb.(*Core).DoInsert
+    /Users/apple/work/go/pkg/mod/github.com/gogf/gf/v2@v2.0.6/database/gdb/gdb_core.go:451
+5.  github.com/gogf/gf/v2/database/gdb.(*HookInsertInput).Next
+    /Users/apple/work/go/pkg/mod/github.com/gogf/gf/v2@v2.0.6/database/gdb/gdb_model_hook.go:119
+6.  github.com/gogf/gf/v2/database/gdb.(*Model).doInsertWithOption
+    /Users/apple/work/go/pkg/mod/github.com/gogf/gf/v2@v2.0.6/database/gdb/gdb_model_insert.go:335
+7.  github.com/gogf/gf/v2/database/gdb.(*Model).Insert
+    /Users/apple/work/go/pkg/mod/github.com/gogf/gf/v2@v2.0.6/database/gdb/gdb_model_insert.go:175
+8.  github.com/gogf/gf/v2/database/gdb.(*Model).Insert
+    /Users/apple/work/go/pkg/mod/github.com/gogf/gf/v2@v2.0.6/database/gdb/gdb_model_insert.go:173
+9.  zzw/internal/service.(*sWhite).AddWhite
+    /Users/apple/work/go/src/project/zzw/internal/service/white.go:43
+10. zzw/internal/controller.(*cWhite).AddWhite
+    /Users/apple/work/go/src/project/zzw/internal/controller/white.go:29
+11. github.com/gogf/gf/v2/net/ghttp.(*middleware).callHandlerFunc.func1
+    /Users/apple/work/go/pkg/mod/github.com/gogf/gf/v2@v2.0.6/net/ghttp/ghttp_request_middleware.go:151
+12. github.com/gogf/gf/v2/net/ghttp.niceCallFunc
+    /Users/apple/work/go/pkg/mod/github.com/gogf/gf/v2@v2.0.6/net/ghttp/ghttp_func.go:56
+13. github.com/gogf/gf/v2/net/ghttp.(*middleware).callHandlerFunc
+    /Users/apple/work/go/pkg/mod/github.com/gogf/gf/v2@v2.0.6/net/ghttp/ghttp_request_middleware.go:128
+14. github.com/gogf/gf/v2/net/ghttp.(*middleware).Next.func1
+    /Users/apple/work/go/pkg/mod/github.com/gogf/gf/v2@v2.0.6/net/ghttp/ghttp_request_middleware.go:74
+15. github.com/gogf/gf/v2/util/gutil.TryCatch
+    /Users/apple/work/go/pkg/mod/github.com/gogf/gf/v2@v2.0.6/util/gutil/gutil.go:55
+16. github.com/gogf/gf/v2/net/ghttp.(*middleware).Next
+    /Users/apple/work/go/pkg/mod/github.com/gogf/gf/v2@v2.0.6/net/ghttp/ghttp_request_middleware.go:48
+17. github.com/gogf/gf/v2/net/ghttp.MiddlewareHandlerResponse
+    /Users/apple/work/go/pkg/mod/github.com/gogf/gf/v2@v2.0.6/net/ghttp/ghttp_middleware_handler_response.go:26
+18. github.com/gogf/gf/v2/net/ghttp.(*middleware).Next.func1.1
+    /Users/apple/work/go/pkg/mod/github.com/gogf/gf/v2@v2.0.6/net/ghttp/ghttp_request_middleware.go:54
+19. github.com/gogf/gf/v2/net/ghttp.niceCallFunc
+    /Users/apple/work/go/pkg/mod/github.com/gogf/gf/v2@v2.0.6/net/ghttp/ghttp_func.go:56
+20. github.com/gogf/gf/v2/net/ghttp.(*middleware).Next.func1
+    /Users/apple/work/go/pkg/mod/github.com/gogf/gf/v2@v2.0.6/net/ghttp/ghttp_request_middleware.go:53
+21. github.com/gogf/gf/v2/util/gutil.TryCatch
+    /Users/apple/work/go/pkg/mod/github.com/gogf/gf/v2@v2.0.6/util/gutil/gutil.go:55
+22. github.com/gogf/gf/v2/net/ghttp.(*middleware).Next
+    /Users/apple/work/go/pkg/mod/github.com/gogf/gf/v2@v2.0.6/net/ghttp/ghttp_request_middleware.go:48
+23. zzw/internal/cmd.MiddlewareCORS
+    /Users/apple/work/go/src/project/zzw/internal/cmd/cmd.go:15
+24. github.com/gogf/gf/v2/net/ghttp.(*middleware).Next.func1.1
+    /Users/apple/work/go/pkg/mod/github.com/gogf/gf/v2@v2.0.6/net/ghttp/ghttp_request_middleware.go:54
+25. github.com/gogf/gf/v2/net/ghttp.niceCallFunc
+    /Users/apple/work/go/pkg/mod/github.com/gogf/gf/v2@v2.0.6/net/ghttp/ghttp_func.go:56
+26. github.com/gogf/gf/v2/net/ghttp.(*middleware).Next.func1
+    /Users/apple/work/go/pkg/mod/github.com/gogf/gf/v2@v2.0.6/net/ghttp/ghttp_request_middleware.go:53
+27. github.com/gogf/gf/v2/util/gutil.TryCatch
+    /Users/apple/work/go/pkg/mod/github.com/gogf/gf/v2@v2.0.6/util/gutil/gutil.go:55
+28. github.com/gogf/gf/v2/net/ghttp.(*middleware).Next
+    /Users/apple/work/go/pkg/mod/github.com/gogf/gf/v2@v2.0.6/net/ghttp/ghttp_request_middleware.go:48
+29. github.com/gogf/gf/v2/net/ghttp.internalMiddlewareServerTracing
+    /Users/apple/work/go/pkg/mod/github.com/gogf/gf/v2@v2.0.6/net/ghttp/ghttp_middleware_tracing.go:78
+30. github.com/gogf/gf/v2/net/ghttp.(*middleware).Next.func1.5
+    /Users/apple/work/go/pkg/mod/github.com/gogf/gf/v2@v2.0.6/net/ghttp/ghttp_request_middleware.go:95
+31. github.com/gogf/gf/v2/net/ghttp.niceCallFunc
+    /Users/apple/work/go/pkg/mod/github.com/gogf/gf/v2@v2.0.6/net/ghttp/ghttp_func.go:56
+32. github.com/gogf/gf/v2/net/ghttp.(*middleware).Next.func1
+    /Users/apple/work/go/pkg/mod/github.com/gogf/gf/v2@v2.0.6/net/ghttp/ghttp_request_middleware.go:94
+33. github.com/gogf/gf/v2/util/gutil.TryCatch
+    /Users/apple/work/go/pkg/mod/github.com/gogf/gf/v2@v2.0.6/util/gutil/gutil.go:55
+34. github.com/gogf/gf/v2/net/ghttp.(*middleware).Next
+    /Users/apple/work/go/pkg/mod/github.com/gogf/gf/v2@v2.0.6/net/ghttp/ghttp_request_middleware.go:48
+35. github.com/gogf/gf/v2/net/ghttp.(*Server).ServeHTTP
+    /Users/apple/work/go/pkg/mod/github.com/gogf/gf/v2@v2.0.6/net/ghttp/ghttp_server_handler.go:121
+ 

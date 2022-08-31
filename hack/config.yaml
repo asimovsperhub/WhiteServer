@@ -1,0 +1,12 @@
+
+# CLI tool, only in development environment.
+# https://goframe.org/pages/viewpage.action?pageId=3673173
+# GoFrame CLI tool configuration.
+gfcli:
+  gen:
+    dao:
+      - link:            "mysql:root:Asimov@0518@tcp(172.81.40.90:3306)/white" # 数据库驱动 :链接地址(用户:密码)/数据库
+        tables:          "Address" # 表名
+        removePrefix:    "gf_"
+        descriptionTag:  true
+        noModelComment:  true
